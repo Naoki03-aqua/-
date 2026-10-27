@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学習場面の傾向と学習習慣チェック（改訂版）</title>
+<meta name="description" content="学習場面における5つの傾向と学習習慣をふり返る、30項目のチェックシート。回答は送信されません。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E7EBE7;
+  --surface:#FCFDFB;
+  --surface-2:#F3F6F2;
+  --ink:#16211D;
+  --ink-2:#46554F;
+  --ink-3:#5F6D66;
+  --pine:#0F6653;
+  --pine-deep:#0B4F41;
+  --pine-wash:#DDEAE3;
+  --pine-wash-2:#EEF5F1;
+  --shu:#A9342A;
+  --shu-wash:#F4E2DF;
+  --line:#D3DAD4;
+  --line-2:#E4E9E4;
+  --radius:4px;
+  --radius-lg:10px;
+  --sp:clamp(1rem,.85rem+.9vw,1.6rem);
+  --step--1:clamp(.76rem,.73rem+.14vw,.84rem);
+  --step-0:clamp(.98rem,.94rem+.24vw,1.06rem);
+  --step-1:clamp(1.14rem,1.04rem+.5vw,1.4rem);
+  --step-2:clamp(1.45rem,1.24rem+1vw,2.1rem);
+  --step-3:clamp(2rem,1.45rem+2.6vw,3.5rem);
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --mincho:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",YuMincho,serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",YuGothic,sans-serif;
+  --shadow:0 1px 2px rgba(22,33,29,.05),0 14px 30px -22px rgba(22,33,29,.45);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:var(--step-0);
+  line-height:1.85;
+  letter-spacing:.01em;
+  overflow-wrap:anywhere;
+}
+h1,h2,h3,h4{font-family:var(--mincho);line-height:1.4;letter-spacing:.02em;margin:0;}
+p{margin:0;}
+a{color:var(--pine);text-underline-offset:.22em;}
+a:hover{color:var(--pine-deep);}
+:focus-visible{outline:2px solid var(--shu);outline-offset:3px;border-radius:2px;}
+img,svg{max-width:100%;}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  background:var(--pine-deep);
+  color:var(--surface);
+  padding:clamp(2.4rem,1.6rem+6vw,5.5rem) var(--sp) clamp(2rem,1.4rem+4vw,3.6rem);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(to bottom,rgba(252,253,251,.07) 0 1px,transparent 1px 34px);
+  pointer-events:none;
+}
+.hero__inner{position:relative;max-width:1120px;margin:0 auto;display:grid;gap:clamp(1.2rem,.8rem+2vw,2.4rem);}
+.hero__eyebrow{
+  font-family:var(--mono);
+  font-size:var(--step--1);
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#B9D8CB;
+  display:flex;flex-wrap:wrap;gap:.8em;align-items:center;
+}
+.hero__eyebrow span{white-space:nowrap;}
+.hero h1{
+  font-size:var(--step-3);
+  font-weight:700;
+  letter-spacing:.01em;
+  line-height:1.28;
+  max-width:20ch;
+}
+.hero h1 em{
+  font-style:normal;
+  display:block;
+  font-size:.52em;
+  letter-spacing:.06em;
+  color:#B9D8CB;
+  margin-top:.55em;
+  font-family:var(--mono);
+  line-height:1.7;
+}
+.hero__lead{
+  max-width:56ch;
+  color:#EAF2ED;
+  font-size:var(--step-0);
+}
+.hero__meta{
+  display:flex;flex-wrap:wrap;gap:.5rem .9rem;
+  font-family:var(--mono);font-size:var(--step--1);letter-spacing:.1em;
+  color:#B9D8CB;
+  border-top:1px solid rgba(252,253,251,.22);
+  padding-top:.9rem;
+}
+.hero__meta span{display:inline-flex;gap:.5em;align-items:center;}
+.hero__meta span::before{content:"";width:5px;height:5px;background:#7FB6A2;border-radius:50%;flex:0 0 auto;}
+
+/* ---------- shell ---------- */
+.shell{max-width:1120px;margin:0 auto;padding:0 var(--sp);}
+.section{
+  display:grid;
+  grid-template-columns:76px minmax(0,1fr);
+  gap:clamp(.8rem,.4rem+1.6vw,2rem);
+  padding:clamp(2.2rem,1.6rem+3vw,4rem) 0;
+  border-bottom:1px solid var(--line);
+}
+.section:last-of-type{border-bottom:none;}
+.rail{
+  font-family:var(--mono);
+  font-size:var(--step--1);
+  letter-spacing:.14em;
+  color:var(--ink-3);
+  padding-top:.35rem;
+}
+.rail__num{display:block;font-size:1.1rem;color:var(--shu);letter-spacing:.02em;}
+.rail__txt{display:block;margin-top:.5em;line-height:1.6;}
+.body-col{min-width:0;}
+.h2{
+  font-size:var(--step-2);
+  font-weight:700;
+  margin-bottom:.7em;
+}
+.h3{
+  font-size:var(--step-1);
+  font-weight:600;
+  margin:clamp(1.6rem,.8rem+2vw,2.6rem) 0 .6em;
+}
+.h3:first-child{margin-top:0;}
+.lead{color:var(--ink-2);max-width:62ch;}
+.small{font-size:var(--step--1);color:var(--ink-3);}
+
+/* ---------- cards ---------- */
+.grid-3{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:1.4rem;}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:1.1rem 1.15rem 1.2rem;
+  box-shadow:var(--shadow);
+}
+.card__label{
+  font-family:var(--mono);font-size:var(--step--1);letter-spacing:.14em;
+  color:var(--pine);display:block;margin-bottom:.5em;
+}
+.card__h,.card h4{font-size:1rem;font-weight:700;margin:0 0 .4em;letter-spacing:.02em;line-height:1.5;}
+.card p{font-size:.94em;color:var(--ink-2);line-height:1.8;}
+
+.quote{
+  margin:1.6rem 0 0;
+  padding:1.1rem 1.2rem 1.2rem 1.5rem;
+  border-left:3px solid var(--shu);
+  background:var(--surface-2);
+  border-radius:0 var(--radius-lg) var(--radius-lg) 0;
+}
+.quote p{font-family:var(--mincho);font-size:1.02em;line-height:1.9;}
+.quote footer{
+  margin-top:.6em;font-family:var(--mono);font-size:var(--step--1);
+  color:var(--ink-3);letter-spacing:.06em;
+}
+.note{
+  margin-top:1.2rem;
+  padding:.95rem 1.1rem;
+  border:1px dashed var(--line);
+  border-radius:var(--radius-lg);
+  font-size:.92em;
+  color:var(--ink-2);
+  background:var(--surface);
+}
+.note strong{color:var(--ink);}
+
+ol.rules{margin:.9rem 0 0;padding-left:1.4em;color:var(--ink-2);}
+ol.rules li{margin:.35em 0;}
+
+/* ---------- quiz ---------- */
+.quiz-head{
+  position:sticky;top:0;z-index:20;
+  background:rgba(231,235,231,.95);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+  padding:.6rem 0;
+}
+.quiz-head__inner{
+  max-width:1120px;margin:0 auto;padding:0 var(--sp);
+  display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:var(--step--1);letter-spacing:.08em;color:var(--ink-2);
+}
+.bar{flex:1 1 140px;min-width:110px;height:4px;background:var(--line);border-radius:99px;overflow:hidden;}
+.bar__fill{height:100%;width:0;background:var(--pine);transition:width .35s ease;}
+.qlist{display:grid;gap:.7rem;margin-top:1.4rem;}
+.q{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:3px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:1rem 1.1rem 1.05rem;
+  margin:0;
+  transition:border-color .2s ease,background .2s ease;
+}
+.q.is-done{border-left-color:var(--pine);background:var(--surface);}
+.q.is-missing{border-left-color:var(--shu);border-color:var(--shu);}
+.q legend{float:left;width:100%;padding:0;margin-bottom:.8rem;}
+.q__line{display:flex;gap:.65rem;align-items:baseline;}
+.q__no{
+  font-family:var(--mono);font-size:var(--step--1);color:var(--ink-3);
+  flex:0 0 2.1em;letter-spacing:.02em;padding-top:.15em;
+}
+.q__text{font-size:1em;line-height:1.75;}
+.q__tag{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;
+  color:var(--shu);border:1px solid var(--shu);border-radius:99px;
+  padding:.05em .5em;white-space:nowrap;margin-left:.4em;
+  display:inline-block;vertical-align:.15em;
+}
+.scale{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  clear:both;
+}
+.scale__cell{position:relative;margin:0;}
+.scale__cell + .scale__cell{border-left:1px solid var(--line);}
+.scale__cell input{
+  position:absolute;inset:0;width:100%;height:100%;
+  opacity:0;margin:0;cursor:pointer;
+}
+.scale__cell span{
+  display:flex;align-items:center;justify-content:center;
+  min-height:2.7rem;
+  font-family:var(--mono);font-size:.9rem;color:var(--ink-3);
+  transition:background .15s ease,color .15s ease;
+}
+.scale__cell:hover span{background:var(--pine-wash-2);color:var(--pine);}
+.scale__cell input:checked + span{background:var(--pine);color:#fff;font-weight:500;}
+.scale__cell input:focus-visible + span{outline:2px solid var(--shu);outline-offset:-3px;}
+.scale-key{
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:.7rem;color:var(--ink-3);
+  margin-top:.4rem;letter-spacing:.04em;
+}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-top:1.6rem;}
+.btn{
+  font-family:var(--sans);font-size:1rem;font-weight:700;
+  border:1px solid var(--pine);background:var(--pine);color:#fff;
+  padding:.85em 1.7em;border-radius:99px;cursor:pointer;
+  letter-spacing:.04em;transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:var(--pine-deep);border-color:var(--pine-deep);}
+.btn:active{transform:translateY(1px);}
+.btn--ghost{background:transparent;color:var(--pine);border-color:var(--line);}
+.btn--ghost:hover{background:var(--pine-wash-2);color:var(--pine-deep);border-color:var(--pine);}
+.status{font-family:var(--mono);font-size:var(--step--1);color:var(--shu);}
+.status.ok{color:var(--pine);}
+
+/* ---------- result ---------- */
+#result{padding-top:clamp(1rem,.6rem+2vw,2rem);}
+.result-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:clamp(1.2rem,1rem+1.4vw,2rem);box-shadow:var(--shadow);
+}
+.profile-name{
+  font-family:var(--mincho);font-size:var(--step-2);font-weight:700;line-height:1.4;margin:.2em 0 .1em;
+}
+.profile-sub{font-family:var(--mono);font-size:var(--step--1);color:var(--ink-3);letter-spacing:.1em;margin-bottom:1em;}
+.result-grid{
+  display:grid;gap:clamp(1rem,.6rem+2vw,2rem);align-items:start;
+  grid-template-columns:minmax(220px,300px) minmax(0,1fr);
+}
+@media (max-width:720px){.result-grid{grid-template-columns:1fr;}}
+.radar{background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--radius-lg);padding:.8rem;}
+.radar svg{display:block;width:100%;height:auto;}
+.factors{display:grid;gap:.9rem;}
+.factor{}
+.factor__top{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;}
+.factor__name{font-weight:700;font-size:.98em;}
+.factor__name small{font-weight:400;font-family:var(--mono);font-size:.72em;color:var(--ink-3);margin-left:.5em;letter-spacing:.06em;}
+.factor__score{font-family:var(--mono);font-size:.95em;color:var(--pine);}
+.factor__score i{font-style:normal;color:var(--ink-3);font-size:.8em;}
+.track{height:9px;background:var(--pine-wash);border-radius:99px;overflow:hidden;margin:.35rem 0 .3rem;}
+.track__fill{height:100%;background:var(--pine);width:0;transition:width .7s cubic-bezier(.2,.7,.2,1);}
+.factor__band{font-size:.85em;color:var(--ink-2);}
+.bandtag{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;
+  padding:.1em .55em;border-radius:99px;border:1px solid currentColor;margin-right:.5em;
+}
+.bandtag.low{color:var(--ink-2);}
+.bandtag.mid{color:var(--pine);}
+.bandtag.high{color:var(--shu);}
+.advice{
+  display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  margin-top:1.4rem;
+}
+.advice{margin-left:0;}
+.advice > div{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:.9rem 1rem;}
+.advice dt{font-family:var(--mono);font-size:var(--step--1);letter-spacing:.1em;color:var(--pine);margin-bottom:.2em;}
+.advice dd{margin:0;font-size:.93em;color:var(--ink-2);line-height:1.8;}
+.advice .avoid dt{color:var(--shu);}
+
+/* ---------- tables ---------- */
+.table-wrap{overflow-x:auto;margin-top:1.2rem;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:.9em;}
+caption{text-align:left;padding:.85rem 1rem .2rem;font-size:var(--step--1);color:var(--ink-3);font-family:var(--mono);letter-spacing:.06em;}
+th,td{padding:.8rem .95rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-2);line-height:1.7;}
+thead th{background:var(--pine-wash-2);font-size:.86em;letter-spacing:.04em;color:var(--pine-deep);border-bottom:1px solid var(--line);}
+tbody th{font-weight:700;white-space:nowrap;}
+table tbody tr:last-child th,table tbody tr:last-child td{border-bottom:none;}
+td.is-good{color:var(--pine-deep);}
+td.is-bad{color:var(--shu);}
+.tbl-note{font-size:var(--step--1);color:var(--ink-3);margin-top:.7rem;}
+
+details{
+  border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);
+  padding:.1rem 1.1rem;margin-top:.8rem;
+}
+details summary{
+  cursor:pointer;padding:.85rem 0;font-weight:700;list-style:none;
+  display:flex;justify-content:space-between;gap:1rem;align-items:center;
+}
+details summary::-webkit-details-marker{display:none;}
+details summary::after{
+  content:"＋";font-family:var(--mono);color:var(--pine);font-weight:400;flex:0 0 auto;
+}
+details[open] summary::after{content:"−";}
+details .dbody{padding-bottom:1rem;color:var(--ink-2);font-size:.95em;}
+
+.refs{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.7rem;}
+.refs li{font-size:.9em;color:var(--ink-2);line-height:1.75;padding-left:1.1em;position:relative;}
+.refs li::before{content:"—";position:absolute;left:0;color:var(--line);}
+.refs a{word-break:break-all;}
+
+.footer{background:var(--pine-deep);color:#CFE2D8;padding:clamp(1.6rem,1rem+3vw,2.8rem) 0;}
+.footer .shell{display:grid;gap:.8rem;}
+.footer p{font-size:var(--step--1);line-height:1.9;max-width:70ch;color:#CFE2D8;}
+.footer strong{color:#fff;}
+
+@media (max-width:640px){
+  .section{grid-template-columns:1fr;gap:.6rem;}
+  .rail{display:flex;gap:.9rem;align-items:baseline;padding-top:0;}
+  .rail__txt{margin-top:0;}
+  .rail__num{font-size:.95rem;}
+}
+
+@media print{
+  body{background:#fff;color:#000;font-size:10.5pt;}
+  .hero{background:#fff;color:#000;padding:0 0 10mm;}
+  .hero::before{display:none;}
+  .hero h1,.hero h1 em,.hero__lead{color:#000;}
+  .hero__meta{color:#333;border-top-color:#999;}
+  .quiz-head,.actions,.no-print,.q__tag{display:none !important;}
+  .section{grid-template-columns:1fr;padding:8mm 0;break-inside:avoid;}
+  .rail{color:#555;}
+  .card,.result-card,details,.table-wrap{box-shadow:none;break-inside:avoid;}
+  #result:empty{display:none;}
+  body.has-result #quiz-section{display:none;}
+  a{color:#000;text-decoration:none;}
+  .footer{background:#fff;color:#000;}
+  .footer p,.footer strong{color:#000;}
+}
+@page{size:A4;margin:16mm;}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow"><span>Learning Profile Check</span><span>改訂版 2.1</span><span>30項目</span></p>
+    <h1>学習場面の傾向と<br>学習習慣チェック<em>あなたは何タイプか、ではなく<br>どんな条件で力が出るか。</em></h1>
+    <p class="hero__lead">これは、あなたを一つの型にはめるテストではありません。勉強の場面で、あなたの力が出やすい条件と、出にくくなる条件を、5つの傾向から見つけるためのチェックです。結果は「あなたという人間の説明」ではなく、先生と話すときの「たたき台」として使います。</p>
+    <p class="hero__meta"><span>30項目</span><span>約5〜7分</span><span>回答は送信されません</span><span>端末内だけで計算</span></p>
+  </div>
+</header>
+
+<main class="shell">
+
+  <!-- 01 -->
+  <section class="section" id="about">
+    <div class="rail"><span class="rail__num">01</span><span class="rail__txt">このチェックについて</span></div>
+    <div class="body-col">
+      <h2 class="h2">何を測り、何を測っていないか</h2>
+      <p class="lead">5つの傾向（開放性・誠実性・外向性・協調性・情緒安定性）を、それぞれ6つの質問で見ます。心理学の研究で繰り返し使われてきた5因子モデルを土台に、学習場面の言葉に置きかえたものです。</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="card__label">Measures</span>
+          <h3 class="card__h">測っているもの</h3>
+          <p>勉強に取り組むときの、あなたの「動きやすさ」と「止まりやすさ」。どういう条件だと始められるか、どういう条件だと力が出るか。</p>
+        </div>
+        <div class="card">
+          <span class="card__label">Does not measure</span>
+          <h3 class="card__h">測っていないもの</h3>
+          <p>知能、学力、才能、将来の可能性。性格の良し悪しや優劣も測りません。数字が低いことは「できない」という意味ではありません。</p>
+        </div>
+        <div class="card">
+          <span class="card__label">How to use</span>
+          <h3 class="card__h">使い方</h3>
+          <p>次の面談で「何を試してみるか」を決める材料にします。結果を見て終わりではなく、試して、反応を見て、書きかえていく前提のものです。</p>
+        </div>
+      </div>
+
+      <blockquote class="quote">
+        <p>「素直な子だから伸びた」のではなく、相手によって素直になれるかどうかが変わる。理解しようとしてくれている人には心が開き、頭ごなしに押しつけてくる人には閉じる。だから大事なのは、どの言葉を言うかより先に、この子を分かろうとする姿勢そのものです。</p>
+        <footer>— 坪田信貴『生徒の力を引き出すのは問いかけ力』セミナー（要旨）</footer>
+      </blockquote>
+
+      <div class="note">
+        <strong>結果は、今の環境の中での傾向です。</strong>人は場面と相手によって行動を変えます（特性は状況と切り離せない、という心理学の知見があります）。同じ人でも、信頼できる先生の前では開放的に、相性の悪い相手の前では閉じることがある。だからこの結果は「あなたはこうだ」ではなく、「今のあなたは、こういう条件で動きやすい」と読んでください。
+      </div>
+
+      <h3 class="h3">答えるときの3つのお願い</h3>
+      <ol class="rules">
+        <li>深く考えず、直感で答えてください。長く迷った項目は、たいてい「どちらでもない」です。</li>
+        <li>「こうありたい自分」ではなく、「この1か月の実際の自分」に近いほうを選んでください。</li>
+        <li>正解はありません。正直に答えるほど、面談で使える材料になります。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="section" id="quiz-section">
+    <div class="rail"><span class="rail__num">02</span><span class="rail__txt">設問<br>全30問</span></div>
+    <div class="body-col">
+      <h2 class="h2">30の質問</h2>
+      <p class="lead">1＝あてはまらない、5＝あてはまる。5段階で選んでください。質問は、特定の傾向に偏らないように順番を混ぜています。途中で「これはどれくらい?」と迷ったら、1か月の自分を思い出して近いほうを選んでください。</p>
+
+      <div class="quiz-head no-print" id="quiz-head" hidden>
+        <div class="quiz-head__inner">
+          <span id="progress-label">回答済み 0 / 30</span>
+          <div class="bar" role="progressbar" aria-labelledby="progress-label" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" id="progressbar"><div class="bar__fill" id="progress-fill"></div></div>
+          <span>全問そろったら結果を見る</span>
+        </div>
+      </div>
+
+      <form id="quiz" novalidate>
+        <div class="qlist" id="qlist"></div>
+        <div class="actions">
+          <button type="submit" class="btn">結果を見る</button>
+          <button type="button" class="btn btn--ghost" id="reset-btn">回答をやり直す</button>
+          <span class="status" id="status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="section" id="result-section">
+    <div class="rail"><span class="rail__num">03</span><span class="rail__txt">結果</span></div>
+    <div class="body-col">
+      <h2 class="h2">結果</h2>
+      <div id="result">
+        <p class="lead">設問に答えて「結果を見る」を押すと、ここに5つの傾向と、あなたの学び方が表示されます。</p>
+      </div>
+      <div class="actions no-print" id="result-actions" hidden>
+        <button type="button" class="btn" id="print-btn">結果を印刷 / PDFに保存</button>
+        <button type="button" class="btn btn--ghost" id="to-top-btn">設問に戻る</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="section" id="teacher">
+    <div class="rail"><span class="rail__num">04</span><span class="rail__txt">指導者の方へ</span></div>
+    <div class="body-col">
+      <h2 class="h2">対話の仮説として使うために</h2>
+      <p class="lead">ここから先は、先生・保護者の方向けの内容です。生徒の皆さんは読まなくても大丈夫です。このチェックの結果は「診断」ではなく、次の面談で何を試すかを決めるための<strong>仮説</strong>として扱ってください。</p>
+
+      <h3 class="h3">4-1. 同じ言葉が、真逆に届く</h3>
+      <p class="lead">現場でよく使う言葉ほど、受け取られ方は分かれます。下の表は、実際の指導場面でよく出る言葉を、5つの傾向に置きかえて整理したものです。「この傾向の生徒には使わないほうがよい」という禁止リストではなく、<strong>言い換えの候補</strong>として読んでください。</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>言葉の受け取られ方（5因子の傾向別・仮説）</caption>
+          <thead>
+            <tr><th scope="col">よく使う言葉</th><th scope="col">届きやすい傾向</th><th scope="col">逆向きに働きやすい傾向</th><th scope="col">言い換えの候補</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">「頑張って」</th>
+              <td class="is-good">開放性が高め／外向性が高め<br><span class="small">明るい見通しの話として受け取りやすい</span></td>
+              <td class="is-bad">誠実性が高め×情緒安定性が控えめ<br><span class="small">「あなたがやれ」という指示に聞こえる</span></td>
+              <td>「ここまでで大丈夫。次はこの1問だけ」</td>
+            </tr>
+            <tr>
+              <th scope="row">「一緒に頑張ろうね」</th>
+              <td class="is-good">協調性が高め／情緒安定性が控えめ<br><span class="small">隣にいる安心として届く</span></td>
+              <td class="is-bad">外向性が高め×協調性が控えめ<br><span class="small">干渉・監視のように感じる</span></td>
+              <td>「任せた。困ったときだけ呼んで」</td>
+            </tr>
+            <tr>
+              <th scope="row">「みんなやってるよ」</th>
+              <td class="is-good">協調性が高め<br><span class="small">合わせる理由として機能する</span></td>
+              <td class="is-bad">開放性が高め×協調性が控えめ／誠実性が高めの達成志向<br><span class="small">独自性の否定、あるいは「大したことない」と映る</span></td>
+              <td>「これは、あなたの目標のどこにつながっている?」</td>
+            </tr>
+            <tr>
+              <th scope="row">「自分で決めなさい」</th>
+              <td class="is-good">外向性が高め／誠実性が高め<br><span class="small">自分で決めたい、調べたい</span></td>
+              <td class="is-bad">協調性が高め×外向性が控えめ<br><span class="small">対立を避けて、決められなくなる</span></td>
+              <td>「AとB、どっちがいいか決めてくれたら助かる」</td>
+            </tr>
+            <tr>
+              <th scope="row">「もっと大きな夢を持とう」</th>
+              <td class="is-good">開放性が高め／誠実性が高め<br><span class="small">発想が広がり、選択肢が増える</span></td>
+              <td class="is-bad">誠実性が高め×情緒安定性が控えめ／協調性が高め<br><span class="small">今の否定に聞こえる、相手の望みを優先して本音を言えない</span></td>
+              <td>「今やりたいことの延長に、どんな選択肢があると思う?」</td>
+            </tr>
+            <tr>
+              <th scope="row">「任せたね」</th>
+              <td class="is-good">外向性が高め／誠実性が高め<br><span class="small">役割を与えられたと受け取る</span></td>
+              <td class="is-bad">情緒安定性が控えめ<br><span class="small">「失敗できない」という重さに変わる</span></td>
+              <td>「まずはこの範囲だけ任せたい。途中で一度見せて」</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">※ 傾向は連続した量です。「協調性が高め」は「必ずそうなる」ではありません。目の前の反応のほうが、表より常に優先します。</p>
+
+      <h3 class="h3">4-2. 押すのではなく、アクセルの位置を教える</h3>
+      <p class="lead">重いトラックを後ろから押し続けると、押し手がいないと動きません。文脈（どこへ向かうのか）と選択肢（この道と、この道）を示すと、生徒は自分でアクセルを踏みます。これは心理学でいう自律性の支援にあたります。</p>
+      <div class="grid-3">
+        <div class="card">
+          <span class="card__label">Context</span>
+          <h3 class="card__h">文脈の提示</h3>
+          <p>何のためにやるかを、先に1行で伝える。「この単元は、入試の図形の土台になる」。意味が先、作業が後。</p>
+        </div>
+        <div class="card">
+          <span class="card__label">Choice</span>
+          <h3 class="card__h">選択肢の提示</h3>
+          <p>2〜3択にして、選ばせてから始める。「例題3問→確認テスト」か「確認テスト→例題3問」か。選んだ事実が当事者意識になる。</p>
+        </div>
+        <div class="card">
+          <span class="card__label">Why it works</span>
+          <h3 class="card__h">効く理由</h3>
+          <p>選択肢があると、指示待ちではなく自分ごとになる。特に誠実性や情緒安定性が控えめな生徒は、「全部やれ」で止まり、「2問だけ選ぶ」なら動き出す。</p>
+        </div>
+      </div>
+
+      <h3 class="h3">4-3. 面談の3ステップ</h3>
+      <details>
+        <summary>① 仮説を1つだけ持つ</summary>
+        <div class="dbody">結果の5つの数字を全部説明しようとすると、生徒は何も持ち帰れません。「この子は、自分で決めたことなら動く」のように、仮説を1つに絞って面談に入ります。数字は、その仮説の根拠として1つだけ引用します。</div>
+      </details>
+      <details>
+        <summary>② 2週間、1つだけ変えてみる</summary>
+        <div class="dbody">言葉を1つ、または選択肢の出し方を1つだけ変えます。同時にいくつも変えると、何が効いたのか分からなくなります。変えた日付をメモに残します。</div>
+      </details>
+      <details>
+        <summary>③ 反応を見て、仮説を書きかえる</summary>
+        <div class="dbody">合わなければ、その仮説は捨てます。合わなかったことは失敗ではなく、その子の理解が1つ進んだという記録です。面談のたびに仮説が入れかわっていくのが正常な状態です。</div>
+      </details>
+
+      <h3 class="h3">4-4. 9タイプの言葉との対応（参考・仮の翻訳）</h3>
+      <p class="lead">現場で使われている類型名を、このチェックの5因子の言葉に翻訳すると、次のような対応になります。<strong>これは本チェックからタイプを推定するものではなく</strong>、すでに使っている言葉と5因子をつなぐための仮の対応表です。生徒を「〇〇タイプ」と呼ぶのではなく、対話の入口としてだけ使ってください。</p>
+      <div class="table-wrap">
+        <table>
+          <caption>類型名 → 5因子の傾向（仮の対応）</caption>
+          <thead><tr><th scope="col">よく使われる類型名</th><th scope="col">対応する傾向の組み合わせ（仮）</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">楽天家</th><td>外向性が高め＋開放性が高め＋情緒安定性が高め</td></tr>
+            <tr><th scope="row">堅実家</th><td>誠実性が高め＋情緒安定性が控えめ＋協調性は中くらい</td></tr>
+            <tr><th scope="row">統率者</th><td>外向性が高め＋誠実性が高め＋協調性が控えめ</td></tr>
+            <tr><th scope="row">研究者</th><td>開放性が高め＋外向性が控えめ</td></tr>
+            <tr><th scope="row">調停者</th><td>協調性が高め＋外向性が控えめ</td></tr>
+            <tr><th scope="row">芸術家</th><td>開放性が高め＋協調性が控えめ（独自性を重んじる）</td></tr>
+            <tr><th scope="row">達成者</th><td>誠実性が高め＋外向性が高め</td></tr>
+            <tr><th scope="row">献身家</th><td>協調性が高め＋誠実性が高め</td></tr>
+            <tr><th scope="row">完璧主義者</th><td>誠実性が高め＋情緒安定性が控えめ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">※ 対応はこのチェックの設計上の整理であり、類型論の側の定義を検証したものではありません。</p>
+
+      <h3 class="h3">4-5. 使わないでほしい使い方</h3>
+      <div class="note">
+        <strong>次の用途には使えません。</strong>集団内の序列づけや選抜、成績評価への直結、進路の制限、医療・心理的な診断の代わり、「〇〇タイプだから」と本人に断定して伝えること。このチェックは教育目的の参考資料であり、尺度としての妥当性の検証は別途必要です。実施する場合は、回答が送信されないこと、結果の使い道、拒否できることを事前に伝えてください。
+      </div>
+
+      <h3 class="h3">4-6. 参考資料</h3>
+      <ul class="refs">
+        <li>Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013). Improving students' learning with effective learning techniques. <em>Psychological Science in the Public Interest, 14</em>(1), 4–58. <a href="https://doi.org/10.1177/1529100612453266" rel="noopener">doi:10.1177/1529100612453266</a></li>
+        <li>Mischel, W., &amp; Shoda, Y. (1995). A cognitive-affective system theory of personality. <em>Psychological Review, 102</em>(2), 246–268.</li>
+        <li>Deci, E. L., &amp; Ryan, R. M. (2000). The "what" and "why" of goal pursuits. <em>Psychological Inquiry, 11</em>(4), 227–268.</li>
+        <li>Costa, P. T., &amp; McCrae, R. R. (1992). <em>NEO PI-R professional manual.</em> Psychological Assessment Resources.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <p><strong>学習場面の傾向と学習習慣チェック（改訂版 2.1）</strong><br>回答は端末内のブラウザだけで計算され、どこにも送信・保存されません。ページを閉じると回答は消えます。印刷やPDF保存は、結果が表示された状態で行ってください。</p>
+    <p>本チェックは教育目的の参考資料です。心理・医療的な診断ではありません。結果は今の環境と人間関係の中で現れた傾向であり、あなたの可能性の上限を示すものではありません。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var F = {
+    O:{ name:"開放性", alias:"探究心", oneline:"新しい見方や「なぜ」を求める傾向",
+        use:"「これ、日常のどこで使われてると思う?」", avoid:"「答えだけ覚えておけばいい」",
+        adv:{ low:"範囲と手順がはっきりしているほど動きやすい。意味づけは短く1行で伝え、まず1問だけ始める。",
+              mid:"手順どおりに進めたい気持ちと、別のやり方を試したい気持ちの両方がある。どちらも使える。",
+              high:"「なぜ」「ほかには?」を向けると自分で掘り下げる。ただし話題が広がりやすいので、今日終える範囲を先に決めておく。" } },
+    C:{ name:"誠実性", alias:"積み上げ", oneline:"計画して最後まで仕上げる傾向",
+        use:"「今日はここまで、と区切って進めよう」", avoid:"「とにかく全部やりなさい」",
+        adv:{ low:"締切と小さな単位で区切る。「机に出す→1問目を開く」までを固定すると始めやすい。",
+              mid:"締切が近いと動けるが、余裕があると後ろにずれやすい。中間の締切を自分で作ると安定する。",
+              high:"計画を立てて積み上げられる。崩れたときの立て直しルールを先に決めておくと、計画が崩れても戻りやすい。" } },
+    E:{ name:"外向性", alias:"場に出る力", oneline:"人との関わりで力が出る傾向",
+        use:"「ちょっと説明してくれる?」", avoid:"「黙って一人でやりなさい」",
+        adv:{ low:"一人で集中できる時間を確保する。質問は口頭より、メモやノートに書いて渡すなど負担の少ない手段から。",
+              mid:"場と一人の時間の両方が要る。切りかえのタイミングを自分で決めると力が出る。",
+              high:"対話・発表・教え合いで伸びる。人と話す場がしばらくないと止まりやすいので、短い区切りの外側に会話の場を置く。" } },
+    A:{ name:"協調性", alias:"分かち合い", oneline:"相手を気づかう傾向",
+        use:"「どっちがいいか、決めてくれたら助かる」", avoid:"「自分で決めなさい」",
+        adv:{ low:"自分のペースと正確さを大事にする。指摘は事実と手順に限定して短く伝えると通りやすい。",
+              mid:"相手に合わせる場面と、自分のやり方を押す場面の両方がある。どちらが楽だったかをふり返ると手がかりになる。",
+              high:"「人のために」が動機になる。ただし相手の望みを優先して自分の希望を言わないことがある。選択肢は狭く具体的にすると選べる。" } },
+    S:{ name:"情緒安定性", alias:"立て直し", oneline:"感情の揺れを整える傾向",
+        use:"「ここまでで大丈夫。次は1問だけ」", avoid:"「なんでできないの?」",
+        adv:{ low:"不安が高まりやすい。予告と小さな成功体験を多めに。失敗したあとの切りかえ手順を、先に決めておく。",
+              mid:"場面によって波がある。波が大きいのはどんなときかを、条件として書き出してみると整理しやすい。",
+              high:"緊張場面でも力を出せる。安定しているぶん、不調のサインを見落としやすいので、睡眠と体調の記録は別に持つ。" } }
+  };
+
+  var ITEMS = [
+    { id:"O1", f:"O", t:"勉強した内容が、日常の生活や社会の出来事とどう関わっているか考えることが多い。" },
+    { id:"O2", f:"O", t:"覚えるだけでなく「なぜそうなるのか」を説明できるようになりたいと思う。" },
+    { id:"O3", f:"O", t:"自分と違う考え方の話を聞くと、面白いと感じる。" },
+    { id:"O4", f:"O", t:"同じ問題でも、別のやり方や別の解き方を考えてみたくなる。" },
+    { id:"O5", f:"O", t:"慣れない形式の問題や、やり方がはっきりしない課題は気が進まない。", r:true },
+    { id:"O6", f:"O", t:"興味がもてない分野については、くわしく知ろうとは思わない。", r:true },
+
+    { id:"C1", f:"C", t:"課題は大きいままだと手がつかないので、小さく分けて進める。" },
+    { id:"C2", f:"C", t:"決めた予定どおりに勉強を進められることが多い。" },
+    { id:"C3", f:"C", t:"計画が崩れても、立て直してもう一度続ける。" },
+    { id:"C4", f:"C", t:"出された課題は、期限までに仕上げる。" },
+    { id:"C5", f:"C", t:"気分がのらないと、やろうと思っていた勉強を始めずに終わる。", r:true },
+    { id:"C6", f:"C", t:"使った教材やプリントを、あとで見返せる状態に整理しないままにしている。", r:true },
+
+    { id:"E1", f:"E", t:"わからないことがあると、自分から先生や友だちに聞く。" },
+    { id:"E2", f:"E", t:"人数の多い場や話し合いの場では、いつもより調子が出る。" },
+    { id:"E3", f:"E", t:"初めて会う人とも、そう緊張せずに話せる。" },
+    { id:"E4", f:"E", t:"自分の考えを、その場で言葉にして伝えるほうだ。" },
+    { id:"E5", f:"E", t:"大勢で長い時間過ごすと、どっと疲れて一人になりたくなる。", r:true },
+    { id:"E6", f:"E", t:"自分から話しかけるより、相手から話しかけられるのを待つほうだ。", r:true },
+
+    { id:"A1", f:"A", t:"相手が困っていると、放っておけず何かしたくなる。" },
+    { id:"A2", f:"A", t:"決められたルールや役割は、なるべく守るほうだ。" },
+    { id:"A3", f:"A", t:"人は基本的に信頼できると思う。" },
+    { id:"A4", f:"A", t:"班や係で、自分がやるべき役割は引き受ける。" },
+    { id:"A5", f:"A", t:"自分と違う意見でも、まずは受け止めて聞こうとする。" },
+    { id:"A6", f:"A", t:"自分が正しいと思ったことは、相手がどう感じるかより先に言い切るほうだ。", r:true },
+
+    { id:"S1", f:"S", t:"発表や試験の直前でも、気持ちを落ち着けて臨める。" },
+    { id:"S2", f:"S", t:"失敗しても、落ち込みを引きずらずに切りかえられる。" },
+    { id:"S3", f:"S", t:"心配なことがあっても、やるべきことに手をつけられる。" },
+    { id:"S4", f:"S", t:"周りで機嫌の悪い人がいても、自分の調子はあまり変わらない。" },
+    { id:"S5", f:"S", t:"緊張する場面でも、いつもどおりの力が出せる。" },
+    { id:"S6", f:"S", t:"小さな失敗を、あとから何度も思い出して気にしてしまう。", r:true }
+  ];
+
+  var ORDER = ["O1","C2","E3","A1","S2","C1","E1","S5","O3","A4","E2","C5","S3","O4","A6","C4","E6","A2","O2","S6","C3","E5","A5","S1","O5","C6","A3","E4","S4","O6"];
+
+  var byId = {};
+  ITEMS.forEach(function(it){ byId[it.id] = it; });
+
+  var qlist = document.getElementById("qlist");
+  var form = document.getElementById("quiz");
+  var head = document.getElementById("quiz-head");
+  var progLabel = document.getElementById("progress-label");
+  var progBar = document.getElementById("progressbar");
+  var progFill = document.getElementById("progress-fill");
+  var statusEl = document.getElementById("status");
+  var resultEl = document.getElementById("result");
+  var resultActions = document.getElementById("result-actions");
+  var printBtn = document.getElementById("print-btn");
+  var toTopBtn = document.getElementById("to-top-btn");
+  var resetBtn = document.getElementById("reset-btn");
+  var KEY_LABELS = ["あてはまらない","どちらかといえば、あてはまらない","どちらでもない","どちらかといえば、あてはまる","あてはまる"];
+
+  /* ---------- build form ---------- */
+  var frag = document.createDocumentFragment();
+  ORDER.forEach(function(id, i){
+    var it = byId[id];
+    var n = i + 1;
+    var fs = document.createElement("fieldset");
+    fs.className = "q";
+    fs.dataset.id = id;
+
+    var lg = document.createElement("legend");
+    var line = document.createElement("div");
+    line.className = "q__line";
+    var no = document.createElement("span");
+    no.className = "q__no";
+    no.textContent = (n < 10 ? "0" + n : "" + n);
+    var tx = document.createElement("span");
+    tx.className = "q__text";
+    tx.textContent = it.t;
+    line.appendChild(no);
+    line.appendChild(tx);
+    lg.appendChild(line);
+    fs.appendChild(lg);
+
+    var scale = document.createElement("div");
+    scale.className = "scale";
+    for (var v = 1; v <= 5; v++) {
+      var lab = document.createElement("label");
+      lab.className = "scale__cell";
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = "q_" + id;
+      input.value = String(v);
+      input.setAttribute("aria-label", KEY_LABELS[v-1] + "（" + v + "）");
+      var sp = document.createElement("span");
+      sp.textContent = String(v);
+      lab.appendChild(input);
+      lab.appendChild(sp);
+      scale.appendChild(lab);
+    }
+    fs.appendChild(scale);
+
+    var key = document.createElement("div");
+    key.className = "scale-key";
+    var l = document.createElement("span"); l.textContent = "1 あてはまらない";
+    var r2 = document.createElement("span"); r2.textContent = "あてはまる 5";
+    key.appendChild(l); key.appendChild(r2);
+    fs.appendChild(key);
+
+    frag.appendChild(fs);
+  });
+  qlist.appendChild(frag);
+  head.hidden = false;
+
+  function countAnswered(){
+    var c = 0;
+    ITEMS.forEach(function(it){
+      if (form.querySelector('input[name="q_' + it.id + '"]:checked')) c++;
+    });
+    return c;
+  }
+  function updateProgress(){
+    var c = countAnswered();
+    progLabel.textContent = "回答済み " + c + " / 30";
+    progFill.style.width = (c / 30 * 100) + "%";
+    progBar.setAttribute("aria-valuenow", String(c));
+  }
+  form.addEventListener("change", function(e){
+    if (!e.target || e.target.type !== "radio") return;
+    var fs = e.target.closest(".q");
+    if (fs) { fs.classList.add("is-done"); fs.classList.remove("is-missing"); }
+    updateProgress();
+    statusEl.textContent = "";
+    statusEl.classList.remove("ok");
+  });
+
+  /* ---------- scoring ---------- */
+  function band(p){ return p < 40 ? "low" : (p < 67 ? "mid" : "high"); }
+  function bandLabel(b){ return b === "low" ? "控えめ" : (b === "mid" ? "ふつう" : "高め"); }
+
+  function compute(){
+    var sums = { O:0, C:0, E:0, A:0, S:0 };
+    ITEMS.forEach(function(it){
+      var el = form.querySelector('input[name="q_' + it.id + '"]:checked');
+      var v = el ? Number(el.value) : 3;
+      if (it.r) v = 6 - v;
+      sums[it.f] += v;
+    });
+    var out = {};
+    ["O","C","E","A","S"].forEach(function(k){
+      var mean = sums[k] / 6;
+      out[k] = Math.round((mean - 1) / 4 * 1000) / 10;
+    });
+    return out;
+  }
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"})[c]; }); }
+
+  var LABELS = ["O","C","E","A","S"];
+  function radarSVG(sc){
+    var cx = 150, cy = 148, R = 96, n = 5;
+    var pts = function(v){ // v: array of 0..1 in axis order
+      return v.map(function(ratio, i){
+        var a = -Math.PI/2 + i * 2 * Math.PI / n;
+        var r = R * ratio;
+        return [(cx + Math.cos(a) * r).toFixed(1), (cy + Math.sin(a) * r).toFixed(1)];
+      });
+    };
+    var rings = [0.25, 0.5, 0.75, 1].map(function(ratio){
+      var p = pts([ratio,ratio,ratio,ratio,ratio]).map(function(q){ return q.join(","); }).join(" ");
+      return '<polygon points="' + p + '" fill="none" stroke="#D3DAD4" stroke-width="1"/>';
+    }).join("");
+    var axes = LABELS.map(function(k, i){
+      var a = -Math.PI/2 + i * 2 * Math.PI / n;
+      var x = (cx + Math.cos(a) * R).toFixed(1), y = (cy + Math.sin(a) * R).toFixed(1);
+      var lx = (cx + Math.cos(a) * (R + 20)).toFixed(1), ly = (cy + Math.sin(a) * (R + 20) + 4).toFixed(1);
+      return '<line x1="' + cx + '" y1="' + cy + '" x2="' + x + '" y2="' + y + '" stroke="#D3DAD4" stroke-width="1"/>' +
+             '<text x="' + lx + '" y="' + ly + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#46554F">' + k + '</text>';
+    }).join("");
+    var vals = LABELS.map(function(k){ return Math.max(0.02, sc[k] / 100); });
+    var poly = pts(vals).map(function(q){ return q.join(","); }).join(" ");
+    var dots = pts(vals).map(function(q){
+      return '<circle cx="' + q[0] + '" cy="' + q[1] + '" r="3.2" fill="#0F6653"/>';
+    }).join("");
+    return '<svg viewBox="0 0 300 300" role="img" aria-label="5つの傾向のレーダーチャート">' +
+      rings + axes +
+      '<polygon points="' + poly + '" fill="rgba(15,102,83,.18)" stroke="#0F6653" stroke-width="2"/>' + dots +
+      '<text x="150" y="292" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5F6D66" letter-spacing="1.5">0 - 100 SCALE</text>' +
+      '</svg>';
+  }
+
+  function render(sc){
+    var keys = LABELS.slice().sort(function(a, b){
+      if (sc[b] !== sc[a]) return sc[b] - sc[a];
+      return LABELS.indexOf(a) - LABELS.indexOf(b);
+    });
+    var top = keys.slice(0, 2);
+    var t1 = F[top[0]], t2 = F[top[1]];
+
+    var bars = LABELS.map(function(k){
+      var f = F[k], p = sc[k], b = band(p);
+      return '<div class="factor">' +
+        '<div class="factor__top"><span class="factor__name">' + esc(f.alias) +
+        '<small>' + esc(f.name) + '</small></span>' +
+        '<span class="factor__score">' + p.toFixed(1) + ' <i>/100</i></span></div>' +
+        '<div class="track"><div class="track__fill" data-w="' + p + '"></div></div>' +
+        '<p class="factor__band"><span class="bandtag ' + b + '">' + bandLabel(b) + '</span>' + esc(f.oneline) + '</p>' +
+        '</div>';
+    }).join("");
+
+    var html =
+      '<div class="result-card">' +
+        '<p class="profile-sub">PROFILE / TOP TWO</p>' +
+        '<h3 class="profile-name">' + esc(t1.alias) + ' × ' + esc(t2.alias) + '</h3>' +
+        '<p class="lead">今のあなたの回答では、<strong>' + esc(t1.alias) + '（' + esc(t1.name) + '）</strong>と<strong>' + esc(t2.alias) + '（' + esc(t2.name) + '）</strong>が、相対的に高めに出ています。この2つが組み合わさるときの学び方と、その2つに届きやすい言葉を並べます。</p>' +
+        '<div class="result-grid" style="margin-top:1.4rem;">' +
+          '<div class="radar">' + radarSVG(sc) + '</div>' +
+          '<div class="factors">' + bars + '</div>' +
+        '</div>' +
+        '<dl class="advice">' +
+          '<div><dt>' + esc(t1.alias) + 'に届きやすい言葉</dt><dd>' + esc(t1.use) + '</dd></div>' +
+          '<div class="avoid"><dt>' + esc(t1.alias) + 'で逆向きになりやすい言葉</dt><dd>' + esc(t1.avoid) + '</dd></div>' +
+          '<div><dt>' + esc(t2.alias) + 'に届きやすい言葉</dt><dd>' + esc(t2.use) + '</dd></div>' +
+          '<div class="avoid"><dt>' + esc(t2.alias) + 'で逆向きになりやすい言葉</dt><dd>' + esc(t2.avoid) + '</dd></div>' +
+        '</dl>' +
+        '<h3 class="h3" style="margin-top:1.8rem;">傾向ごとのヒント</h3>' +
+        '<dl class="advice">' +
+          '<div><dt>' + esc(t1.alias) + '：' + bandLabel(band(sc[top[0]])) + '</dt><dd>' + esc(t1.adv[band(sc[top[0]])]) + '</dd></div>' +
+          '<div><dt>' + esc(t2.alias) + '：' + bandLabel(band(sc[top[1]])) + '</dt><dd>' + esc(t2.adv[band(sc[top[1]])]) + '</dd></div>' +
+        '</dl>' +
+        '<div class="note" style="margin-top:1.6rem;"><strong>数字の読み方。</strong>40未満が「控えめ」、40以上67未満が「ふつう」、67以上が「高め」。控えめは「苦手」ではなく、「条件が合えば出るが、合わないと出にくい」という意味です。そして、この結果は今の環境と人間関係の中での傾向です。相手や場面が変われば、出方も変わります。</div>' +
+      '</div>';
+
+    resultEl.innerHTML = html;
+    resultActions.hidden = false;
+    document.body.classList.add("has-result");
+    // animate bars
+    requestAnimationFrame(function(){
+      Array.prototype.forEach.call(resultEl.querySelectorAll(".track__fill"), function(el){
+        el.style.width = el.getAttribute("data-w") + "%";
+      });
+    });
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var missing = [];
+    ITEMS.forEach(function(it){
+      if (!form.querySelector('input[name="q_' + it.id + '"]:checked')) missing.push(it.id);
+    });
+    Array.prototype.forEach.call(qlist.querySelectorAll(".q"), function(el){ el.classList.remove("is-missing"); });
+    if (missing.length > 0) {
+      missing.forEach(function(id){
+        var el = qlist.querySelector('.q[data-id="' + id + '"]');
+        if (el) el.classList.add("is-missing");
+      });
+      var first = qlist.querySelector('.q[data-id="' + missing[0] + '"]');
+      statusEl.textContent = "未回答が " + missing.length + " 問あります。赤い枠の質問に答えてください。";
+      statusEl.classList.remove("ok");
+      if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    statusEl.textContent = "計算しました。下の結果をどうぞ。";
+    statusEl.classList.add("ok");
+    render(compute());
+    var rs = document.getElementById("result-section");
+    if (rs) rs.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  resetBtn.addEventListener("click", function(){
+    if (!window.confirm("回答をすべて消して、最初からやり直しますか?")) return;
+    form.reset();
+    Array.prototype.forEach.call(qlist.querySelectorAll(".q"), function(el){ el.classList.remove("is-done","is-missing"); });
+    updateProgress();
+    statusEl.textContent = "";
+    statusEl.classList.remove("ok");
+    resultEl.innerHTML = '<p class="lead">設問に答えて「結果を見る」を押すと、ここに5つの傾向と、あなたの学び方が表示されます。</p>';
+    resultActions.hidden = true;
+    document.getElementById("quiz-section").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  printBtn.addEventListener("click", function(){ window.print(); });
+  toTopBtn.addEventListener("click", function(){
+    document.getElementById("quiz-section").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  updateProgress();
+})();
+</script>
+</body>
+</html>
